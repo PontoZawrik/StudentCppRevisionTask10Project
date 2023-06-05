@@ -55,6 +55,5 @@ long long task04(int number) {
         num1 = num2;
         num2 = num_next;
     }
-    cout << num_next << endl;
 	return num_next;
 }
