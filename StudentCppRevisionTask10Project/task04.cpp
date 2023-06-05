@@ -39,5 +39,22 @@
 */
 
 long long task04(int number) {
-	return 0;
+    long long num1 = 0;
+    long long num2 = 1;
+    long long num_next = 1;
+
+    if (number <= 0)
+        return -1;
+    if (number == 1)
+        return 0;
+    if (number == 2)
+        return 1;
+
+    for (int i = 0; i < number - 2; i++) {
+        num_next = num1 + num2;
+        num1 = num2;
+        num2 = num_next;
+    }
+    cout << num_next << endl;
+	return num_next;
 }

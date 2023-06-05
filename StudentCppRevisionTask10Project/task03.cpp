@@ -26,5 +26,19 @@
 */
 
 int task03(long long number) {
-	return 0;
+	number = number > 0 ? number : -number;
+	int max = number % 10;
+	int secondMax = -1;
+
+	while (number > 0) {
+		if (number % 10 > max) {
+			secondMax = max;
+			max = number % 10;
+		}
+		else
+			secondMax =  number % 10 > secondMax && number % 10 < max ? number % 10 : secondMax;
+
+		number /= 10;
+	}
+	return secondMax;
 }
