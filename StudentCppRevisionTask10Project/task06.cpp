@@ -32,5 +32,15 @@
 */
 
 int task06(long long number) {
-	return 0;
+	number = number > 0 ? number : -number;
+	int count = 0;
+
+	while (number > 100) {
+		int t = number % 10;
+		number /= 10;
+
+		if (number % 10 > t && number % 10 > number % 100 / 10)
+			count++;
+	}
+	return count;
 }
