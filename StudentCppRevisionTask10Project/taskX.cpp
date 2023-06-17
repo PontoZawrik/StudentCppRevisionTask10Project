@@ -33,17 +33,23 @@ int taskX(long long number) {
 	number = number > 0 ? number : -number;
 
 	int count = 1;
-	int t = number % 10;
-	number /= 10;
+	int t_count = 1;
 
-	if (number < 10)
+	if (number < 10) {
 		return 1;
+	}
 
 	while (number > 0) {
-		if (number % 10 == t)
-			count++;
-		else
-			count = 1;
+		int t = number % 10;
+		number /= 10;
+
+		if (number % 10 == t) {
+			t_count++;
+		}
+		else if (number % 10 != t && t_count != 1) {
+			count = t_count > count ? t_count : count;
+			t_count = 1;
+		}
 	}
 	return count;
 }
